@@ -34,7 +34,7 @@ set :repo_url, 'git@github.com:Monofony/Docs.git'
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :deploy_to, '/home/rd_042_monofony_docs/'
+set :deploy_to, '/home/mobizel/rd_042_monofony_docs/'
 
 # Default value for :scm is :git
 # set :scm, :git
