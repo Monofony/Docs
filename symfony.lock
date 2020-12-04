@@ -16,6 +16,15 @@
             "docs/index.md"
         ]
     },
+    "mobizel/symfony-capistrano": {
+        "version": "0.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "0.2",
+            "ref": "7d15e03293053a1b63b1b073c5f7d91cfc24f874"
+        }
+    },
     "psr/cache": {
         "version": "1.0.1"
     },

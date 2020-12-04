@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89f4d6619fd5967c538f730367750592",
+    "content-hash": "cfe63ea66b0531e81983694142da668d",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -112,6 +112,36 @@
                 "source": "https://github.com/mobizel/markdown-docs-bundle/tree/v0.1.1"
             },
             "time": "2020-12-02T12:33:56+00:00"
+        },
+        {
+            "name": "mobizel/symfony-capistrano",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mobizel/symfony-capistrano.git",
+                "reference": "4423854ff5ffa95349d355e273409fda6d358a40"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mobizel/symfony-capistrano/zipball/4423854ff5ffa95349d355e273409fda6d358a40",
+                "reference": "4423854ff5ffa95349d355e273409fda6d358a40",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2",
+                "symfony/flex": "^1.3"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Capistrano configuration to deploy your Symfony apps.",
+            "support": {
+                "issues": "https://github.com/mobizel/symfony-capistrano/issues",
+                "source": "https://github.com/mobizel/symfony-capistrano/tree/master"
+            },
+            "time": "2020-02-27T08:55:22+00:00"
         },
         {
             "name": "psr/cache",
