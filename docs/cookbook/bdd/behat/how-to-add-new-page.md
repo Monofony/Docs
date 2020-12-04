@@ -8,20 +8,24 @@ To create a new page object it is needed to add a service.
 
 The simplest Symfony-based page looks like:
 
-.. code-block:: php
+```php
+<?php
 
-    use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
+declare(strict_types=1);
 
-    class LoginPage extends SymfonyPage
+namespace App\Tests\Behat\Page\Frontend;
+
+use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
+
+class LoginPage extends SymfonyPage
+{
+    public function getRouteName(): string
     {
-        public function getRouteName(): string
-        {
-            return 'app_frontend_security_login';
-        }
+        return 'app_frontend_security_login';
     }
+}
+```
 
-.. note::
-
-    There are some boilerplates for common pages, which you may use. The available parents are ``FriendsOfBehat\PageObjectExtension\Page\Page``
-    and ``FriendsOfBehat\PageObjectExtension\Page\SymfonyPage``. It is not required for a page to extend any class as
-    pages are POPOs (Plain Old PHP Objects).
+> There are some boilerplates for common pages, which you may use. The available parents are ``FriendsOfBehat\PageObjectExtension\Page\Page``
+> and ``FriendsOfBehat\PageObjectExtension\Page\SymfonyPage``. It is not required for a page to extend any class as
+> pages are POPOs (Plain Old PHP Objects).
