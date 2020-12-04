@@ -12,13 +12,10 @@
 ## The Book
 
 Here you will find all the concepts used in the Monofony platform.
-[The Book](docs/book.md) helps to understand how Monofony works.
+[The Book](book.md) helps to understand how Monofony works.
 
 * [Architecture](book/architecture.md)
-* [Fixtures](book/fixtures.md)
 * [Users](book/users.md)
-* [AdminUser](book/admin-users.md)
-* [Customer and AppUser](book/customer-and-app-user.md)
 
 ## The Cookbook
 
