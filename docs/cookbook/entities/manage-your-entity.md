@@ -37,11 +37,11 @@ sylius_grid:
                         type: delete
 ```
 
-.. warning::
-    You need to clear the Symfony cache when creating a new sylius grid configuration file.
+<div class="block-warning">
+You need to clear the Symfony cache when creating a new sylius grid configuration file.
+</div>
 
-Manually importing you sylius_grid configuration (optional)
------------------------------------------------------------
+## Manually importing your Sylius grid's configuration (optional)
 
 Grids configuration files are automatically detected when clearing the cache.
 You can manually add them if you prefer.

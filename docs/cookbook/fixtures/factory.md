@@ -12,25 +12,16 @@ namespace App\Fixture\Factory;
 
 use App\Entity\Article;
 use Monofony\Plugin\FixturesPlugin\Fixture\Factory\AbstractExampleFactory;
-use Sylius\Component\Resource\Factory\FactoryInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ArticleExampleFactory extends AbstractExampleFactory
 {
-    /** @var FactoryInterface */
-    private $articleFactory;
-
-    /** @var \Faker\Generator */
     private $faker;
-
-    /** @var OptionsResolver */
     private $optionsResolver;
 
-    public function __construct(FactoryInterface $articleFactory)
+    public function __construct()
     {
-        $this->articleFactory = $articleFactory;
-
         $this->faker = \Faker\Factory::create();
         $this->optionsResolver = new OptionsResolver();
 
@@ -55,8 +46,7 @@ final class ArticleExampleFactory extends AbstractExampleFactory
     {
         $options = $this->optionsResolver->resolve($options);
 
-        /** @var Article $article */
-        $article = $this->articleFactory->createNew();
+        $article = new Article();
         $article->setTitle($options['title']);
 
         return $article;

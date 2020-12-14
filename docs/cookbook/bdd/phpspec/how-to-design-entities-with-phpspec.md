@@ -3,20 +3,15 @@
 Lets configure an Article entity with a title and an author.
 Title is a simple string and author implements CustomerInterface.
 
-> By default, phpspec on Monofony is configured with code coverage.
-> [Learn how to configure phpspec with code coverage](how-to-configure-phpspec-with-code-coverage.md) or [disable code coverage](how-to-disable-phpspec-code-coverage.md).
-
 Generate phpspec for your entity
 --------------------------------
 
 ```bash
 $ vendor/bin/phpspec describe App/Entity/Article
-
-$ # with phpdbg installed
-$ phpdbg -qrr vendor/bin/phpspec describe App/Entity/Article
 ```
 
-`spec/src/App/Entity/Article.php`
+It will generate this new file `spec/App/Entity/ArticleSpec.php`.
+
 ```php
 <?php
 
@@ -41,14 +36,13 @@ To run phpspec for our Article entity, run this command:
 
 ```bash
 $ vendor/bin/phpspec run spec/App/Entity/ArticleSpec.php -n
-$
-$ # with phpdbg installed
-$ phpdbg -qrr vendor/bin/phpspec run spec/App/Entity/ArticleSpec.php -n
 ```
 
 And be happy with your first error message with red color.
 
-> You can simply run all the phpspec tests by running `vendor/bin/phpspec run -n`
+<div class="block-note">
+    You can simply run all the phpspec tests by running `vendor/bin/phpspec run -n`
+</div>
 
 ## Create a minimal Article class
 
@@ -77,10 +71,10 @@ function it_implements_sylius_resource_interface(): void
 }
 ```
 
-.. warning::
-
+<div class="block-warning">
     And Rerun phpspec, DO NOT FEAR RED COLOR!
-    It's important to check that you write code which solves your specifications.
+    It's important to check that your new code solves your specifications.
+</div>
 
 Solve this on your entity
 -------------------------
@@ -101,7 +95,9 @@ class Article implements ResourceInterface
 }
 ```
 
-> Rerun phpspec again and check this specification is solved.
+<div class="block-note">
+    Rerun phpspec again and check this specification is solved.
+</div>
 
 Specify title behaviours
 ------------------------
@@ -119,7 +115,9 @@ function its_title_is_mutable(): void
 }
 ```
 
-> Don't forget to rerun phpspec on each step.
+<div class="block-note">
+Don't forget to rerun phpspec on each step.
+</div>
 
 Add title on Article entity
 ---------------------------

@@ -111,7 +111,9 @@ sylius_resource:
                 form: App\Form\Type\ArticleType
 ```
 
-> Don't forget to synchronize your database using Doctrine Migrations.
+<div class="block-warning">
+Don't forget to synchronize your database using Doctrine Migrations.
+</div>    
 
 You can use these two commands to generate and synchronize your database.
 

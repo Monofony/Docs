@@ -5,9 +5,10 @@
 [Monofony](https://twitter.com/hashtag/Monofony) is a project based on
 [Symfony Framework](http://symfony.com) and [Sylius](https://sylius.com).
 
-> This documentation assumes you have a working knowledge of the Symfony
-> Framework. If you're not familiar with Symfony, please start with
-> reading the [Quick Tour](http://symfony.com/doc/current/quick_tour) from the Symfony documentation.
+<div markdown="1" class="block-note">
+This documentation assumes you have a working knowledge of the Symfony
+Framework. If you're not familiar with Symfony, please start with reading the [Quick Tour](http://symfony.com/doc/current/quick_tour) from the Symfony documentation.
+</div>
 
 ## The Book
 
@@ -29,3 +30,5 @@ Here you will find all the concepts used in the Monofony platform.
 ## Deployment
 
 [The Deployment guide](deployment.md) helps to deploy the website on servers.
+
+[Link back to cookbook](#cookbook)

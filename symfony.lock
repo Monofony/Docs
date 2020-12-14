@@ -2,6 +2,9 @@
     "erusev/parsedown": {
         "version": "1.7.4"
     },
+    "erusev/parsedown-extra": {
+        "version": "0.8.1"
+    },
     "mobizel/markdown-docs-bundle": {
         "version": "0.1",
         "recipe": {

@@ -7,9 +7,6 @@ This Author implements CustomerInterface.
 
 ```bash
 $ vendor/bin/phpspec describe App/Factory/ArticleFactory
-
-$ # with phpdbg installed
-$ phpdbg -qrr vendor/bin/phpspec describe App/Factory/ArticleFactory
 ```
 
 ## Run phpspec and do not fear Red
@@ -18,14 +15,13 @@ To run phpspec for our Article factory, run this command:
 
 ```bash
 $ vendor/bin/phpspec run spec/App/Factory/ArticleFactory.php -n
-$
-$ # with phpdbg installed
-$ phpdbg -qrr vendor/bin/phpspec run spec/App/Factory/ArticleFactorySpec.php -n
 ```
 
 And be happy with your first error message with red color.
 
-> You can simply run all the phpspec tests by running `vendor/bin/phpspec run -n`
+<div markdown="1" class="block-note">
+You can simply run all the phpspec tests by running `vendor/bin/phpspec run -n`
+</div>
 
 ## Create a minimal article factory class
 

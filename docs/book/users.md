@@ -4,5 +4,5 @@ Before we dive separately into every Monofony concept, you need to have an overv
 In this chapter we will sketch this architecture and our basic, cornerstone concepts, but also some supportive approaches,
 that you need to notice.
 
-* [AdminUser](users/admin-users.md)
+* [AdminUser](users/admins.md)
 * [Customer and AppUser](users/customers.md)
