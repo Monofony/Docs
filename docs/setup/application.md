@@ -3,14 +3,17 @@
 Install Monofony using composer
 ```bash
 export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
-composer create-project monofony/skeleton acme
+composer create-project monofony/skeleton acme  # replace acme by your project name
+cd acme                                         # move to your project directory
 ```
 
 Install project :
 ```bash
-$ bin/console app:install
-$ yarn install && yarn build (or "yarn dev" for development usage)
-$ symfony server:start --no-tls
+$ bin/console app:install -n            # install the application with non-interactive mode
+$ bin/console sylius:fixtures:load -n   # load data fixtures
+$ yarn install                          # install node packages
+$ yarn build                            # or yarn dev for development
+$ symfony server:start --no-tls         # start a local web server
 ```
 
 ### Api
