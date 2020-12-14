@@ -1,4 +1,4 @@
-# The Book
+# Chapter 2 - The Book
 
 Here you will find all the concepts used in Monofony.
 The Books helps to understand how Monofony works.
