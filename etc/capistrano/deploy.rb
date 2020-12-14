@@ -87,6 +87,7 @@ after 'deploy:updated', :build_assets do
     on roles(:web) do
         puts "Build assets"
         execute "cd #{release_path} && bin/console assets:install"
+        execute "cd #{release_path} && yarn install && yarn build"
     end
 end
 

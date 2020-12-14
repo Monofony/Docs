@@ -18,7 +18,7 @@ $ symfony server:start --no-tls
 The Monofony skeleton is built with the admin panel only.
 You can install our API package to use our default endpoints using `Api Platform`
 
-![alt text](https://github.com/Monofony/Monofony/raw/0.x/docs/_images/api.png "Logo Title Text 1")
+![API Example](/build/images/api.png "Image API example")
 
 Uncomment `$syliusResources` binding on `config/services.yaml`
 
