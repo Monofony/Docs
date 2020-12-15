@@ -1,8 +1,7 @@
-# How to configure backend menu
+# Menu
 
-To configure backend menu for your entity, you have to edit `src/Menu/AdminMenuBuilder.php`.
+To configure your admin menu for your new resource, you have to edit `src/Menu/AdminMenuBuilder.php`.
 
-`src/Menu/AdminMenuBuilder.php`
 ```php
 <?php
 
@@ -31,3 +30,7 @@ private function addContentSubMenu(ItemInterface $menu): ItemInterface
     return $content;
 }
 ```
+
+## Learn More
+
+* [Configuring menu in KnpMenuBundle documentation](https://symfony.com/doc/current/bundles/KnpMenuBundle/index.html)
