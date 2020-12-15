@@ -1,4 +1,4 @@
-# Setup the requirements
+# 1.1 - Setup the requirements
 
 Running Symfony on local machines are faster without using Docker for both PHP and Apache/Nginx.
 We recommend using the Symfony web local server instead.

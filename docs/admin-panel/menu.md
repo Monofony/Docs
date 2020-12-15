@@ -1,4 +1,4 @@
-# Menu
+# 4.1 - Menu
 
 To configure your admin menu for your new resource, you have to edit `src/Menu/AdminMenuBuilder.php`.
 

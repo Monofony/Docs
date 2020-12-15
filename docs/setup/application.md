@@ -1,4 +1,4 @@
-## Setup the application
+## 1.2 - Setup the application
 
 Install Monofony using composer
 ```bash
