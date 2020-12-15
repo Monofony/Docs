@@ -2,8 +2,8 @@
 
 ![Monofony logo](https://monofony.readthedocs.io/en/latest/_images/doc_logo.png)
 
-[Monofony](https://www.monofony.com) is a project based on
-[Symfony Framework](http://symfony.com) and [Sylius](https://sylius.com).
+[Monofony](https://www.monofony.com) is a micro-framework based on
+[Symfony Framework](http://symfony.com) and using [Sylius](https://sylius.com) components and bundles.
 
 <div markdown="1" class="block-note">
 This documentation assumes you have a working knowledge of the Symfony
