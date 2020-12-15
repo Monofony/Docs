@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3646ddae3b96742cfe1be996d49519fa",
+    "content-hash": "19959168f1e21748dd726e6a156b998d",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -109,22 +109,22 @@
         },
         {
             "name": "mobizel/markdown-docs-bundle",
-            "version": "v0.2.0",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobizel/markdown-docs-bundle.git",
-                "reference": "ba6b2f50e92bc7a66b5d95c69704611cc03328f1"
+                "reference": "00e24516870fa924a06360d748eba298f226a8df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobizel/markdown-docs-bundle/zipball/ba6b2f50e92bc7a66b5d95c69704611cc03328f1",
-                "reference": "ba6b2f50e92bc7a66b5d95c69704611cc03328f1",
+                "url": "https://api.github.com/repos/mobizel/markdown-docs-bundle/zipball/00e24516870fa924a06360d748eba298f226a8df",
+                "reference": "00e24516870fa924a06360d748eba298f226a8df",
                 "shasum": ""
             },
             "require": {
                 "erusev/parsedown": "^1.7",
                 "erusev/parsedown-extra": "^0.8.1",
-                "php": "^7.2.9|^8.0",
+                "php": "^7.3|^8.0",
                 "symfony/asset": "^4.4|^5.1",
                 "symfony/framework-bundle": "^4.4|^5.1",
                 "symfony/http-kernel": "^4.4|^5.1",
@@ -162,9 +162,9 @@
             "description": "Explore your markdown documentation files via html web pages",
             "support": {
                 "issues": "https://github.com/mobizel/markdown-docs-bundle/issues",
-                "source": "https://github.com/mobizel/markdown-docs-bundle/tree/v0.2.0"
+                "source": "https://github.com/mobizel/markdown-docs-bundle/tree/v0.3.0"
             },
-            "time": "2020-12-14T15:57:06+00:00"
+            "time": "2020-12-15T15:27:37+00:00"
         },
         {
             "name": "mobizel/symfony-capistrano",
