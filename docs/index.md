@@ -2,7 +2,7 @@
 
 ![Monofony logo](https://monofony.readthedocs.io/en/latest/_images/doc_logo.png)
 
-[Monofony](https://twitter.com/hashtag/Monofony) is a project based on
+[Monofony](https://www.monofony.com) is a project based on
 [Symfony Framework](http://symfony.com) and [Sylius](https://sylius.com).
 
 <div markdown="1" class="block-note">
