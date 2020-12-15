@@ -1,4 +1,4 @@
-# 6.4 - How to load your data fixtures
+# 7.4 - How to load your data fixtures
 
 You can load all your data fixtures using this command.
 

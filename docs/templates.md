@@ -1,4 +1,4 @@
-# Chapter 5 - Templates
+# Chapter 6 - Templates
 
 Monofony uses [Twig](https://symfony.com/doc/current/templates.html#twig-templating-language) for templating.
 

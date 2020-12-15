@@ -1,4 +1,4 @@
-# 6.3 - How to use it on your suite
+# 7.3 - How to use it on your suite
 
 `config/sylius/fixtures.yaml`
 ```yaml

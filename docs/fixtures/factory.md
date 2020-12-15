@@ -1,4 +1,4 @@
-# 6.1 - How to configure a fixture factory
+# 7.1 - How to configure a fixture factory
 
 First you have to create a fixture factory. This service is responsible to create new instance of the resource and handle options.
 This allows to combine random and custom data on your data fixtures.

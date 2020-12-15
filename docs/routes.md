@@ -48,6 +48,14 @@ All the routes are now available:
 | app_backend_article_bulk_delete        | DELETE          |  ANY          |  ANY  |  /admin/articles/bulk-delete     |                
 | app_backend_article_delete             | DELETE          |  ANY          |  ANY  |  /admin/articles/{id}            |
 
+<div markdown="1" class="block-note">
+These results can be dumped with the following command.
+```bash
+$ bin/console debug:router
+$ bin/console debug:router | grep article # to filters only on article routes
+```
+</div>
+
 ## Learn More
 
 * [Configuring routes in sylius documentation](https://github.com/Sylius/SyliusResourceBundle/blob/master/docs/routing.md)

@@ -71,6 +71,14 @@ Sylius has registered some services for you.
 | app.manager.article                                                                   | alias for "doctrine.orm.default_entity_manager"            |                                                                     
 | app.repository.article                                                                | Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository |
 
+<div markdown="1" class="block-note">
+These results can be dumped with the following command.
+```bash
+$ bin/console debug:container
+$ bin/console debug:container | grep article # to filters only on article services
+```
+</div>
+
 The most interesting one is the `app.controller.article` which uses the ResourceController.
 
 This controller can have many operations for your resource.

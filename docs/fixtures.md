@@ -1,4 +1,4 @@
-# Chapter 6 - Fixtures
+# Chapter 7 - Fixtures
 
 * [How to configure a fixture factory](fixtures/factory.md)
 * [How to configure your fixture options](fixtures/fixture.md)

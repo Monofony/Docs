@@ -1,3 +1,3 @@
-# 4.2 - Dashboard
+# 5.2 - Dashboard
 
 * [Creating your own statistics](dashboard/statistic-blocks.md)

@@ -1,4 +1,4 @@
-# 7.2 - How to use Behat to design your features
+# 8.2 - How to use Behat to design your features
 
 <div markdown="1" class="block-note">
 This section is based on the great [Sylius documentation](https://docs.sylius.com).
