@@ -115,5 +115,5 @@ sylius_grid:
 ```
 
 ## Learn More
-Configuring grid in sylius documentation
-The whole configuration reference in sylius documentation
+* [Configuring grid in sylius documentation](https://github.com/Sylius/SyliusGridBundle/blob/master/docs/index.md)
+* [The whole configuration reference in sylius documentation](https://github.com/Sylius/SyliusGridBundle/blob/master/docs/configuration.md)
