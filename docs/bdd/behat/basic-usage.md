@@ -201,8 +201,10 @@ final class IndexPage extends AbstractIndexPage
 }
 ```
 
-> There is one small gap in this concept - PageObjects is not a concrete instance of the currently opened page, they only mimic its behaviour (dummy pages).
-> This gap will be more understandable on the below code example.
+<div markdown="1" class="block-note">
+There is one small gap in this concept - PageObjects is not a concrete instance of the currently opened page, they only mimic its behaviour (dummy pages).
+This gap will be more understandable on the below code example.
+</div>
 
 ```php
 
@@ -538,9 +540,10 @@ final class ShippingMethodContext implements Context
 }
 ```
 
-.. warning::
-    Contexts should have single responsibility and this segregation (Setup, Transformer, Ui, etc...) is not accidental.
-    We shouldn't create objects in transformer contexts.
+<div class="block-warning">
+Contexts should have single responsibility and this segregation (Setup, Transformer, Ui, etc...) is not accidental.
+We shouldn't create objects in transformer contexts.
+</div>    
 
 ### Setup contexts
 

@@ -23,4 +23,6 @@ default:
                 tags: "@SUITE_TAG"
 ````    
 
-> The context categories are usually one of ``cli``, ``hook``, ``setup``, ``transform``, ``ui``.
+<div markdown="1" class="block-note">
+The context categories are usually one of ``cli``, ``hook``, ``setup``, ``transform``, ``ui``.
+</div>

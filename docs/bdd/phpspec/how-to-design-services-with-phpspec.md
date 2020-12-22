@@ -50,7 +50,9 @@ function it_implements_sylius_factory_interface(): void
 }
 ```
 
-> Don't forget to rerun phpspec on each step.
+<div class="block-warning">
+Don't forget to rerun phpspec on each step.
+</div>
 
 ## Solve this on your factory
 
@@ -158,7 +160,9 @@ class ArticleFactorySpec extends ObjectBehavior
 
 Rerun phpspec and it should be solved.
 
-> Here you pass a string, but you often need to pass objects on constructor. You just have to add them on arguments of the let method and don't forget to use typehints.
+<div class="block-note">
+Here you pass a string, but you often need to pass objects on constructor. You just have to add them on arguments of the let method and don't forget to use typehints.
+</div>
 
 Here is an example with object arguments:
 

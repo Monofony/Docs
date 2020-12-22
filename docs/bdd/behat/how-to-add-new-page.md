@@ -26,6 +26,8 @@ class LoginPage extends SymfonyPage
 }
 ```
 
-> There are some boilerplates for common pages, which you may use. The available parents are ``FriendsOfBehat\PageObjectExtension\Page\Page``
-> and ``FriendsOfBehat\PageObjectExtension\Page\SymfonyPage``. It is not required for a page to extend any class as
-> pages are POPOs (Plain Old PHP Objects).
+<div markdown="1" class="block-note">
+There are some boilerplates for common pages, which you may use. The available parents are ``FriendsOfBehat\PageObjectExtension\Page\Page``
+and ``FriendsOfBehat\PageObjectExtension\Page\SymfonyPage``. It is not required for a page to extend any class as
+pages are POPOs (Plain Old PHP Objects).
+</div>
