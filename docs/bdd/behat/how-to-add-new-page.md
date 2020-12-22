@@ -1,5 +1,4 @@
-How to add a new page object?
-=============================
+# How to add a new page object?
 
 Sylius uses a solution inspired by ``SensioLabs/PageObjectExtension``, which provides an infrastructure to create
 pages that encapsulates all the user interface manipulation in page objects.

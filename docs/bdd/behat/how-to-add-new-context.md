@@ -1,5 +1,4 @@
-How to add a new context?
-=========================
+# How to add a new context?
 
 Thanks to symfony autowiring, most of your contexts are ready to use.
 
