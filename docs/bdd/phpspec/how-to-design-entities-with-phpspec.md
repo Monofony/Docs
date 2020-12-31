@@ -3,8 +3,7 @@
 Lets configure an Article entity with a title and an author.
 Title is a simple string and author implements CustomerInterface.
 
-Generate phpspec for your entity
---------------------------------
+## Generate phpspec for your entity {#generate-your-entity}
 
 ```bash
 $ vendor/bin/phpspec describe App/Entity/Article
@@ -30,7 +29,7 @@ class ArticleSpec extends ObjectBehavior
 }
 ```
 
-## Run phpspec and do not fear Red
+## Run phpspec and do not fear Red {#do-not-fear-red}
 
 To run phpspec for our Article entity, run this command:
 
@@ -44,7 +43,7 @@ And be happy with your first error message with red color.
     You can simply run all the phpspec tests by running `vendor/bin/phpspec run -n`
 </div>
 
-## Create a minimal Article class
+## Create a minimal Article class {#minimal-article-class}
 
 `src/App/Entity/Article.php`
 ```php
@@ -61,8 +60,7 @@ class Article
 
 Rerun phpspec and see a beautiful green color.
 
-Specify it implements sylius resource interface
------------------------------------------------
+## Specify it implements sylius resource interface {#implements-resource-interface}
 
 ```php
 function it_implements_sylius_resource_interface(): void
@@ -76,8 +74,7 @@ function it_implements_sylius_resource_interface(): void
     It's important to check that your new code solves your specifications.
 </div>
 
-Solve this on your entity
--------------------------
+## Solve this on your entity {#solve-it}
 
 `src/App/Entity/Article.php`
 ```php
@@ -99,8 +96,7 @@ class Article implements ResourceInterface
     Rerun phpspec again and check this specification is solved.
 </div>
 
-Specify title behaviours
-------------------------
+## Specify title behaviours {#specify-title}
 
 ```php
 function it_has_no_title_by_default(): void
@@ -119,8 +115,7 @@ function its_title_is_mutable(): void
 Don't forget to rerun phpspec on each step.
 </div>
 
-Add title on Article entity
----------------------------
+## Add title on Article entity {#add-title}
 
 `src/App/Entity/Article.php`
 ```php
@@ -140,8 +135,7 @@ public function setTitle(?string $title): void
 }
 ```
 
-Specify author of the article
------------------------------
+## Specify author of the article {#specify-author}
 
 `spec/src/App/Entity/Article.php`
 ```php
@@ -156,7 +150,7 @@ function its_author_is_mutable(CustomerInterface $author): void
 }
 ```
 
-## Add author on your entity
+## Add author on your entity {#add-author}
 
 `src/App/Entity/Article.php`
 ```php

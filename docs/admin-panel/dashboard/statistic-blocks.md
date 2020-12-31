@@ -2,11 +2,11 @@
 
 The mechanism behind the displaying of statistics relies on tagged services which are supported since Symfony 4.3
 
-## Create your own statistic block
+## Create your own statistic block {#custom-statistic-block}
 
 ![Stat blocks](/build/images/stat-blocks.png)
 
-### Basic Example
+### Basic Example {#basic-example}
 
 `App\Dashboard\Statistics\ArticleStatistic.php`
 ```php
@@ -40,7 +40,6 @@ final class ArticleStatistic implements StatisticInterface
         ]);
     }
 }
-
 ```
 
 This services needs to implement the ``App\Dashboard\Statistics\StatisticInterface``.
@@ -55,7 +54,7 @@ The response of the generate function will be displayed as is in the dashboard.
     Eg. in the CustomerStatistic it is an HTML block which shows you the amount of registered customers.
 </div>
 
-## Order your statistics
+## Order your statistics {#order-your-statistics}
 
 Since Symfony 4.4 it is possible to sort your services with a static function called ``getDefaultPriority``.
 Here you need to return an integer to set the weight of the service. Statistics with a higher priority will be displayed first.
@@ -73,8 +72,7 @@ public static function getDefaultPriority(): int
 If you change the priority it is necessary to clear your cache. Otherwise you won't see the difference.
 </div>
 
-Add custom logic to your statistic
-----------------------------------
+## Add custom logic to your statistic {#custom-logic}
 
 Because all statistics are services it's perfectly possible to do anything with them as long as the generate function
 returns a string. So you can inject any service you want trough Dependency Injection to build your statistic.

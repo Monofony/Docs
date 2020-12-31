@@ -1,5 +1,7 @@
 # 1.2 - Setup the application
 
+## Skeleton {#skeleton}
+
 Install Monofony using composer
 ```bash
 export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
@@ -16,7 +18,7 @@ $ yarn build                            # or yarn dev for development
 $ symfony server:start --no-tls         # start a local web server
 ```
 
-## Api
+## Api {#api}
 
 The Monofony skeleton is built with the admin panel only.
 You can install our API package to use our default endpoints using `Api Platform`
@@ -43,7 +45,7 @@ export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-co
 composer require monofony/api-pack
 ```
 
-## Front
+## Front {#front}
 
 To build a frontend, you can use our front-pack with default features:
 * login

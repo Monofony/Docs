@@ -1,6 +1,6 @@
 # 6.1 - Customize your forms
 
-## Create your own template
+## Create your own template {#custom}
 
 ```twig
 <!-- templates/backend/article/_form.html.twig -->
@@ -13,7 +13,7 @@
 
 This is just an example. You can do whatever you want.
 
-## Add your template to the configuration
+## Add your template to the configuration {#configuration}
 
 ```yaml
 # config/routes/backend/article.yaml
@@ -37,7 +37,7 @@ app_backend_article:
 
 This template will be used for both create and update pages.
 
-### How does it work?
+## How does it work? {#how-does-it-work}
 
 ```twig
 <!-- templates/backend/crud/update/_content.html.twig -->

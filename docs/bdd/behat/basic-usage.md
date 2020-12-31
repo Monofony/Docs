@@ -4,7 +4,7 @@ The best way of understanding how things work in detail is showing and analyzing
 Let's assume that we are going to implement the functionality of managing countries in our system.
 Now let us show you the flow.
 
-## Describing features
+## Describing features {#describing-features}
 
 Let's start with writing our feature file, which will contain answers to the most important questions:
 Why (benefit, business value), who (actor using the feature) and what (the feature itself).
@@ -40,7 +40,7 @@ To be more descriptive let's imagine that we want to check if a country is added
 First we are checking if the adding works via frontend, so we are implementing steps that are clicking, opening pages,
 filling fields on forms and similar, but also we want to check this action regardlessly of the frontend, for that we need the domain, which allows us to perform actions only on objects.
 
-Choosing a correct suite
+Choosing a correct suite {#choosing-correct-suite}
 ------------------------
 
 After we are done with a feature file, we have to create a new suite for it. At the beginning we have decided that it will be a frontend/user interface feature, that is why we are placing it in "config/suites/ui/addressing/managing_countries.yaml".
@@ -99,7 +99,7 @@ default:
 
 We are almost finished with the suite configuration.
 
-## Registering Pages
+## Registering Pages {#registering-pages}
 
 The page object approach allows us to hide all the detailed interaction with ui (html, javascript, css) inside.
 
@@ -279,7 +279,7 @@ final class GapContext implements Context
 }
 ```
 
-Registering contexts
+Registering contexts {#registring-contexts}
 --------------------
 
 As it was shown in the previous section we have registered a lot of contexts, so we will show you only some of the steps implementation.
@@ -294,7 +294,7 @@ And the country "United States" should appear in the store
 
 Let's start with essential one ManagingCountriesContext
 
-### Ui contexts
+### Ui contexts {#ui-contexts}
 
 ```php
 <?php
@@ -398,7 +398,7 @@ final class NotificationContext implements Context
 }
 ```
 
-### Transformer contexts
+### Transformer contexts {#transformer-contexts}
 
 ```php
 <?php

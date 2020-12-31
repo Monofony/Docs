@@ -3,12 +3,12 @@
 Running Symfony on local machines are faster without using Docker for both PHP and Apache/Nginx.
 We recommend using the Symfony web local server instead.
 
-## Install Symfony CLI
+## Install Symfony CLI {#symfony-cli}
 ```bash
 curl -sS https://get.symfony.com/cli/installer | bash
 ```
 
-## PHP 7.3 or later
+## PHP 7.3 or later {#php}
 Ensure you have php 7.3 or later locally installed
 
 ```bash
@@ -27,7 +27,7 @@ On linux, you can use apt-get:
 sudo apt-get install php7.3
 ```
 
-## MySQL 5.7
+## MySQL 5.7 {#mysql}
 
 We'll provide a docker-compose to setup mysql5.7.
 

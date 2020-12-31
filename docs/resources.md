@@ -1,6 +1,6 @@
 # Chapter 2 - Creating resources 
 
-## A Basic Resource
+## A Basic Resource {#basic-resource}
 
 `src/Entity/Article.php`
 ```php
@@ -50,7 +50,7 @@ The IdentifiableTrait contains:
 The IdentifiableTrait has been created with Flex and this file is yours. You can edit it to fit your needs.
 </div>
 
-## Register the new Resource on Sylius
+## Register the new Resource on Sylius {#register-new-resource}
 You now have to register it on Sylius Resource configuration.
 
 `config/sylius/resources.yaml`

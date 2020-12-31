@@ -5,7 +5,7 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "mobizel/markdown-docs-bundle": "^0.4",
+        "mobizel/markdown-docs-bundle": "^0.5",
         "mobizel/symfony-capistrano": "^0.2.0",
         "symfony/asset": "5.2.*",
         "symfony/console": "5.2.*",

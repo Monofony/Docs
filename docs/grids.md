@@ -2,7 +2,7 @@
 
 ![Grids](/build/images/grids.png)
 
-## Basic example
+## Basic example {#basic-example}
 ```yaml
 # config/sylius/grids/backend/article.yaml
 sylius_grid:
@@ -41,7 +41,7 @@ You need to clear the Symfony cache when creating a new sylius grid configuratio
 </div>
 
 
-## Manually importing your Grids' configuration (optional)
+## Manually importing your Grids' configuration (optional) {#manually-importing-grids}
 
 Grids configuration files are automatically detected when clearing the cache. You can manually add them if you prefer.
 
@@ -53,7 +53,7 @@ imports:
     - { resource: 'grids/backend/customer.yaml' }
 ```
 
-## Advanced example
+## Advanced example {#advanced-example}
 
 This configuration is the one used on our demo to show pets list on admin panel.
 
@@ -114,6 +114,6 @@ sylius_grid:
 
 ```
 
-## Learn More
+## Learn More {#learn-more}
 * [Configuring grid in sylius documentation](https://github.com/Sylius/SyliusGridBundle/blob/master/docs/index.md)
 * [The whole configuration reference in sylius documentation](https://github.com/Sylius/SyliusGridBundle/blob/master/docs/configuration.md)

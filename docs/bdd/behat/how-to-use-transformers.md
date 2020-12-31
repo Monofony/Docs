@@ -3,7 +3,7 @@
 Behat provides many awesome features, and one of them is definitely **transformers**. They can be used to transform (usually widely used) parts of steps and return some values from them,
 to prevent unnecessary duplication in many steps' definitions.
 
-## Basic transformer
+## Basic transformer {#basic-transformer}
 
 Example is always the best way to clarify, so let's look at this:
 
@@ -91,11 +91,11 @@ This style gives an opportunity to write simple steps with transformers, without
 Transformer definition does not have to be implemented in the same context, where it is used. It allows to share them between many different contexts.
 </div>
 
-## Transformers implemented in Monofony
+## Transformers implemented in Monofony {#monofony-transformers}
 
 Moreover, there can be more generic transformers, that could be useful in many different cases.
 
-### SharedStorageContext
+### SharedStorageContext {#shared-storage-context}
 
 ``SharedStorageContext`` is kind of container used to keep objects, which can be shared between steps. It can be used, for example, to keep newly created promotion,
 to use its name in checking existence step.
