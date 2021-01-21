@@ -16,7 +16,7 @@ This is just an example. You can do whatever you want.
 ## Add your template to the configuration {#configuration}
 
 ```yaml
-# config/routes/backend/article.yaml
+# config/sylius/routes/backend/article.yaml
 app_backend_article:
     resource: |
         alias: app.article

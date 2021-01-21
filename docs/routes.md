@@ -1,6 +1,6 @@
 # Chapter 3 - Routes
 
-To configure admin routes for your resource, you have to create a new file on backend routes folder ``config/routes/backend``.
+To configure admin routes for your resource, you have to create a new file on backend routes folder ``config/sylius/routes/backend``.
 
 Let’s configure our “Article” routes as an example.
 
@@ -9,7 +9,7 @@ If you haven’t already created your first resource, check out [Creating resour
 </div>
 
 ```yaml
-# config/routes/backend/article.yaml
+# config/sylius/routes/backend/article.yaml
 app_backend_article:
     resource: |
         alias: app.article
@@ -29,7 +29,7 @@ app_backend_article:
 And add it on backend routes configuration.
 
 ```yaml
-# config/routes/backend/_main.yaml
+# config/sylius/routes/backend/_main.yaml
 [...]
 
 app_backend_article:
