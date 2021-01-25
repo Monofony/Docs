@@ -8,9 +8,9 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build/')
+    .setOutputPath('public/current/')
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    .setPublicPath('/current')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
 
@@ -24,8 +24,8 @@ Encore
     .disableSingleRuntimeChunk()
 
     .copyFiles({
-        from: './assets/images',
-        to: 'images/[path][name].[ext]'
+        from: './docs/_images',
+        to: '_images/[path][name].[ext]'
     })
 ;
 
