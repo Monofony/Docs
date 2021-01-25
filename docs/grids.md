@@ -1,6 +1,6 @@
 # Chapter 4 - Grids
 
-![Grids](/build/images/grids.png)
+![Grids](_images/grids.png)
 
 ## Basic example {#basic-example}
 ```yaml

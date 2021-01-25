@@ -4,7 +4,7 @@ The mechanism behind the displaying of statistics relies on tagged services whic
 
 ## Create your own statistic block {#custom-statistic-block}
 
-![Stat blocks](/build/images/stat-blocks.png)
+![Stat blocks](../../_images/stat-blocks.png)
 
 ### Basic Example {#basic-example}
 
