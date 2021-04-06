@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6192d34edfbccdd6619f36c338c80413",
+    "content-hash": "e9e7cc6984b29f8e367c410788179594",
     "packages": [
         {
             "name": "erusev/parsedown",
@@ -109,16 +109,16 @@
         },
         {
             "name": "mobizel/markdown-docs-bundle",
-            "version": "v0.7.1",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mobizel/markdown-docs-bundle.git",
-                "reference": "4691940094b6973eca8931d94402583011488f8c"
+                "reference": "089bbd9352ad5816f97e0d0fa372137a394a7ea9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mobizel/markdown-docs-bundle/zipball/4691940094b6973eca8931d94402583011488f8c",
-                "reference": "4691940094b6973eca8931d94402583011488f8c",
+                "url": "https://api.github.com/repos/mobizel/markdown-docs-bundle/zipball/089bbd9352ad5816f97e0d0fa372137a394a7ea9",
+                "reference": "089bbd9352ad5816f97e0d0fa372137a394a7ea9",
                 "shasum": ""
             },
             "require": {
@@ -164,9 +164,9 @@
             "description": "Explore your markdown documentation files via html web pages",
             "support": {
                 "issues": "https://github.com/mobizel/markdown-docs-bundle/issues",
-                "source": "https://github.com/mobizel/markdown-docs-bundle/tree/v0.7.1"
+                "source": "https://github.com/mobizel/markdown-docs-bundle/tree/v0.8.0"
             },
-            "time": "2021-04-02T12:40:15+00:00"
+            "time": "2021-04-02T21:32:34+00:00"
         },
         {
             "name": "mobizel/symfony-capistrano",
