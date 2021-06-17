@@ -82,3 +82,211 @@ $ bin/console debug:container | grep article # to filters only on article servic
 The most interesting one is the `app.controller.article` which uses the ResourceController.
 
 This controller can have many operations for your resource.
+
+## Use PHP 8 attributes for Doctrine mapping {#php-8-attributes}
+
+First, update the Doctrine configuration.
+
+```yaml
+# config/packages/doctrine.yaml
+doctrine:
+    # [...]
+    orm:
+        # [...]
+        mappings:
+        App:
+            # [...]
+            type: attribute
+```
+
+`src/Entity/Customer/Customer.php`
+```php
+<?php
+
+// [...]
+
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_customer')]
+class Customer extends BaseCustomer implements CustomerInterface
+{
+    /**
+     * @Assert\Valid
+     */
+    #[ORM\OneToOne(targetEntity: AppUser::class, mappedBy: 'customer', cascade: ['persist'])]
+    private ?UserInterface $user = null;
+
+    // [...]
+}
+```
+
+`src/Entity/Media/File.php`
+```php
+<?php
+
+// [...]
+
+#[ORM\MappedSuperclass]
+abstract class File implements FileInterface, ResourceInterface
+{
+    // [...]
+    
+    /**
+     * @Serializer\Groups({"Default", "Detailed"})
+     */
+    #[ORM\Column(type: 'string')]
+    protected ?string $path = null;
+    
+    /**
+     * @var \DateTimeInterface|null
+     */
+    #[ORM\Column(type: 'datetime')]
+    protected $createdAt;
+    
+    /**
+     * @var \DateTimeInterface|null
+     */
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    protected $updatedAt;
+    
+    // [...]
+}
+```
+
+`src/Entity/OAuth/AccessToken.php`
+```php
+<?php
+
+// [...]
+
+use App\Entity\User\AppUser;
+
+// [...]
+
+#[ORM\Entity]
+#[ORM\Table(name: 'oauth_access_token')]
+class AccessToken extends BaseAccessToken
+{
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    protected $id;
+
+    #[ORM\ManyToOne(targetEntity: Client::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    protected $client;
+
+    #[ORM\ManyToOne(targetEntity: AppUser::class)]
+    protected $user;
+}
+```
+
+`src/Entity/OAuth/AuthCode.php`
+```php
+<?php
+
+// [...]
+
+use App\Entity\User\AppUser;
+
+// [...]
+
+#[ORM\Entity]
+#[ORM\Table(name: 'oauth_auth_code')]
+class AuthCode extends BaseAuthCode
+{
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    protected $id;
+
+    #[ORM\ManyToOne(targetEntity: Client::class)]
+    #[ORM\JoinColumn(nullable: false)]
+    protected $client;
+
+    #[ORM\ManyToOne(targetEntity: AppUser::class)]
+    protected $user;
+}
+```
+
+`src/Entity/OAuth/Client.php`
+```php
+<?php
+
+// [...]
+
+#[ORM\Entity]
+#[ORM\Table(name: 'oauth_client')]
+class Client extends BaseClient implements ClientInterface
+{
+    #[ORM\Id]
+    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    protected $id;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPublicId(): string
+    {
+        return $this->getRandomId();
+    }
+}
+```
+
+`src/Entity/User/AdminAvatar.php`
+```php
+<?php
+
+// [...]
+
+/**
+ * @Vich\Uploadable
+ */
+#[ORM\Entity]
+#[ORM\Table(name: 'app_admin_avatar')]
+class AdminAvatar extends File implements AdminAvatarInterface
+{
+   // [..]
+}
+```
+
+`src/Entity/User/AdminUser.php`
+```php
+<?php
+
+// [...]
+
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_admin_user')]
+class AdminUser extends BaseUser implements AdminUserInterface
+{
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $lastName = null;
+
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $firstName = null;
+
+    #[ORM\OneToOne(targetEntity: AdminAvatar::class, cascade: ['persist'])]
+    private ?AdminAvatarInterface $avatar = null;
+    
+    // [...]
+}
+```
+
+`src/Entity/User/AppUser.php`
+```php
+<?php
+
+// [...]
+
+#[ORM\Entity]
+#[ORM\Table(name: 'sylius_app_user')]
+class AppUser extends BaseUser implements AppUserInterface
+{
+    #[ORM\OneToOne(targetEntity: CustomerInterface::class, inversedBy: 'user', cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?CustomerInterface $customer = null;
+    
+    // [...]
+}
+```
