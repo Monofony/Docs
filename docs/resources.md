@@ -290,3 +290,23 @@ class AppUser extends BaseUser implements AppUserInterface
     // [...]
 }
 ```
+
+`src/Entity/IdentifiableTrait.php`
+```php
+<?php
+
+// [...]
+
+trait IdentifiableTrait
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
+    protected ?int $id = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+}
+```
