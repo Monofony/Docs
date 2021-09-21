@@ -1,71 +1,97 @@
 # How to design entities with phpspec
 
-Lets configure an Article entity with a title and an author.
-Title is a simple string and author implements CustomerInterface.
+Let's configure a Book entity with a name and an author.
+Name is a simple string and author is an Author resource.
 
 ## Generate phpspec for your entity {#generate-your-entity}
 
 ```bash
-$ vendor/bin/phpspec describe App/Entity/Article
+$ vendor/bin/phpspec describe App/Entity/Book/Book
 ```
 
-It will generate this new file `spec/App/Entity/ArticleSpec.php`.
+It will generate this new file `spec/App/Entity/Book/BookSpec.php`.
 
 ```php
 <?php
 
-namespace spec\App\Entity;
+namespace spec\App\Entity\Book;
 
-use App\Entity\Article;
+use App\Entity\Book\Book;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class ArticleSpec extends ObjectBehavior
+class BookSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(Article::class);
+        $this->shouldHaveType(Book::class);
     }
 }
 ```
 
 ## Run phpspec and do not fear Red {#do-not-fear-red}
 
-To run phpspec for our Article entity, run this command:
+To run phpspec for our Book entity, run this command:
 
 ```bash
-$ vendor/bin/phpspec run spec/App/Entity/ArticleSpec.php -n
+$ vendor/bin/phpspec run spec/App/Entity/Book/BookSpec.php -n
 ```
 
-And be happy with your first error message with red color.
+And be happy with your first error message:
+
+```shell
+App/Entity/Book/Book                                                            
+  10  - it is initializable
+      class App\Entity\Book\Book does not exist.
+
+                                      100%                                       1
+1 specs
+1 example (1 broken)
+7ms
+```
 
 <div class="block-note">
     You can simply run all the phpspec tests by running `vendor/bin/phpspec run -n`
 </div>
 
-## Create a minimal Article class {#minimal-article-class}
+## Create a minimal Book class {#minimal-book-class}
 
-`src/App/Entity/Article.php`
+`src/App/Entity/Book/Book.php`
 ```php
 <?php
 
 declare(strict_types=1);
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
-class Article
+class Book
 {
 }
 ```
 
-Rerun phpspec and see a beautiful green color.
+Rerun phpspec and see a beautiful green color:
 
-## Specify it implements sylius resource interface {#implements-resource-interface}
+```shell
+                                      100%                                       1
+1 specs
+1 example (1 passed)
+7ms
+```
+
+## Specify it implements Sylius resource interface {#implements-resource-interface}
 
 ```php
-function it_implements_sylius_resource_interface(): void
+<?php
+
+# Import the ResourceInterface from Sylius Resource component.
+use Sylius\Component\Resource\Model\ResourceInterface;
+
+class BookSpec extends ObjectBehavior
 {
-    $this->shouldImplement(ResourceInterface::class);
+    ## Add this new method
+    function it_implements_sylius_resource_interface(): void
+    {
+        $this->shouldImplement(ResourceInterface::class);
+    }
 }
 ```
 
@@ -74,19 +100,32 @@ function it_implements_sylius_resource_interface(): void
     It's important to check that your new code solves your specifications.
 </div>
 
+```shell
+App/Entity/Book/Book                                                              
+  16  - it implements sylius resource interface
+      expected an instance of Sylius\Component\Resource\Model\ResourceInterface, but got
+      [obj:App\Entity\Book\Book].
+
+                  50%                                     50%                    2
+1 specs
+2 examples (1 passed, 1 failed)
+9ms
+```
+
 ## Solve this on your entity {#solve-it}
 
-`src/App/Entity/Article.php`
+`src/App/Entity/Book/Book.php`
 ```php
 <?php
 
 declare(strict_types=1);
 
-namespace App\Entity;
+namespace App\Entity\Book;
 
+use App\Entity\IdentifiableTrait;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
-class Article implements ResourceInterface
+class Book implements ResourceInterface
 {
     use IdentifiableTrait;
 }
@@ -96,18 +135,23 @@ class Article implements ResourceInterface
     Rerun phpspec again and check this specification is solved.
 </div>
 
+The Identifiable Trait is yours. This trait has been copied with Symfony Flex during the installation.
+By default, this use an auto-incremented identifier, But you can customize it as you want. 
+ResourceInterface does not need an integer as identifier, thus you can use another system to generate ids.
+
 ## Specify title behaviours {#specify-title}
 
 ```php
-function it_has_no_title_by_default(): void
+function it_has_no_name_by_default(): void
 {
-    $this->getTitle()->shouldReturn(null);
+    $this->getName()->shouldReturn(null);
 }
 
-function its_title_is_mutable(): void
+function its_name_is_mutable(): void
 {
-    $this->setTitle('This documentation is so great');
-    $this->getTitle()->shouldReturn('This documentation is so great');
+    $this->setName('Shining');
+    
+    $this->getName()->shouldReturn('Shining');
 }
 ```
 
@@ -115,29 +159,140 @@ function its_title_is_mutable(): void
 Don't forget to rerun phpspec on each step.
 </div>
 
-## Add title on Article entity {#add-title}
+```shell
+App/Entity/Book/Book                                                              
+  21  - it has no name by default
+      method App\Entity\Book\Book::getName not found.
 
-`src/App/Entity/Article.php`
+App/Entity/Book/Book                                                            
+  26  - its name is mutable
+      method App\Entity\Book\Book::setName not found.
+
+                  50%                                     50%                    4
+1 specs
+4 examples (2 passed, 2 broken)
+9ms
+```
+
+## Add name on Book entity {#add-name}
+
+`src/App/Entity/Book/Book.php`
 ```php
-/**
- * @var string|null
- */
-private $title;
+private ?string $name = null;
 
-public function getTitle(): ?string
+public function getName(): ?string
 {
-    return $this->title;
+    return $this->name;
 }
 
-public function setTitle(?string $title): void
+public function setName(?string $name): void
 {
-    $this->title = $title;
+    $this->name = $name;
 }
 ```
 
-## Specify author of the article {#specify-author}
+## Create the Author resource {#create-author-resource}
 
-`spec/src/App/Entity/Article.php`
+Create a first name and a last name on your Author resource. 
+Do not forget to implements Sylius Resource interface.
+
+Do not copy and paste the whole `spec/Entity/Book/BookSpec.php` file.
+Repeat the previous steps to describe your Author resource and running Phpspec each time with a baby step.
+You can copy and adapt one method for each baby step from the previous file. 
+And that's why you need to rerun to ensure the test is not implemented yet (error during copy and paste step).
+
+Do it yourself as an entertainment!
+
+At the end the result should be:
+```php
+<?php
+
+namespace spec\App\Entity\Author;
+
+use App\Entity\Author\Author;
+use PhpSpec\ObjectBehavior;
+use Sylius\Component\Resource\Model\ResourceInterface;
+
+class AuthorSpec extends ObjectBehavior
+{
+    function it_is_initializable(): void
+    {
+        $this->shouldHaveType(Author::class);
+    }
+
+    function it_implements_sylius_resource_interface(): void
+    {
+        $this->shouldImplement(ResourceInterface::class);
+    }
+
+    function it_has_no_first_name_by_default(): void
+    {
+        $this->getFirstName()->shouldReturn(null);
+    }
+
+    function its_first_name_is_mutable(): void
+    {
+        $this->setFirstName('Stephen');
+
+        $this->getFirstName()->shouldReturn('Stephen');
+    }
+
+    function it_has_no_last_name_by_default(): void
+    {
+        $this->getLastName()->shouldReturn(null);
+    }
+
+    function its_last_name_is_mutable(): void
+    {
+        $this->setLastName('King');
+
+        $this->getLastName()->shouldReturn('King');
+    }
+}
+```
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Entity\Author;
+
+use App\Entity\IdentifiableTrait;
+use Sylius\Component\Resource\Model\ResourceInterface;
+
+class Author implements ResourceInterface
+{
+    use IdentifiableTrait;
+
+    private ?string $firstName = null;
+    private ?string $lastName = null;
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(?string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(?string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+}
+```
+
+## Specify author of the book {#specify-book-author}
+
+`spec/src/App/Entity/Book/BookSpec.php`
 ```php
 use Sylius\Component\Customer\Model\CustomerInterface;
 
@@ -152,14 +307,11 @@ function its_author_is_mutable(CustomerInterface $author): void
 
 ## Add author on your entity {#add-author}
 
-`src/App/Entity/Article.php`
+`src/App/Entity/Book/Book.php`
 ```php
 // [...]
 
-/**
- * @var CustomerInterface|null
- */
-private $author;
+private ?CustomerInterface $author = null;
 
 // [...]
 
