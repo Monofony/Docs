@@ -88,7 +88,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 class BookSpec extends ObjectBehavior
 {
     ## Add this new method
-    function it_implements_sylius_resource_interface(): void
+    function it_is_a_resource(): void
     {
         $this->shouldImplement(ResourceInterface::class);
     }
@@ -220,7 +220,7 @@ class AuthorSpec extends ObjectBehavior
         $this->shouldHaveType(Author::class);
     }
 
-    function it_implements_sylius_resource_interface(): void
+    function it_is_a_resource(): void
     {
         $this->shouldImplement(ResourceInterface::class);
     }
