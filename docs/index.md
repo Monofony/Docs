@@ -1,8 +1,8 @@
 # Monofony Documentation
 
-![Monofony logo](https://monofony.readthedocs.io/en/latest/_images/doc_logo.png)
+![Monofony logo](_images/logo.png)
 
-[Monofony](https://www.monofony.com) is a micro-framework based on
+[Monofony](https://github.com/Monofony/Monofony) is a micro-framework based on
 [Symfony Framework](http://symfony.com) and using [Sylius](https://sylius.com) components and bundles.
 
 <div markdown="1" class="block-note">
