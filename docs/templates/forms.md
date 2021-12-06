@@ -37,6 +37,19 @@ app_backend_article:
 
 This template will be used for both create and update pages.
 
+Don"t forget to add the form type in resources.yaml
+
+```yaml
+# config/sylius/resources.yaml
+sylius_resource:
+    resources:
+        app.article:
+            classes:
+                model: App\Entity\Article\Article
+                repository: App\Repository\ArticleRepository
+                form: App\Form\Type\Article\ArticleType
+```
+
 ## How does it work? {#how-does-it-work}
 
 ```twig
