@@ -1,6 +1,6 @@
 # 7.2 - How to configure your fixture options
 
-Now you have to create a fixture service. This defines options you can use on [fixtures bundle configurations yaml files](https://github.com/Monofony/Monofony/blob/0.x/src/Monofony/Pack/CorePack/.recipe/config/sylius/fixtures.yaml).
+Now you have to create a fixture service. 
 
 ```php
 <?php
