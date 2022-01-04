@@ -5,8 +5,8 @@
 ### Install Monofony using composer {#composer}
 ```bash
 export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
-composer create-project monofony/skeleton acme  # replace acme by your project name
-cd acme                                         # move to your project directory
+composer create-project monofony/skeleton project_name  # replace project_name by your project name
+cd project_name                                         # move to your project directory
 ```
 
 ### Configure your database {#database}
@@ -20,10 +20,14 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5
 Don't forgot to replace db_user and db_password by yours.
 </div>
 
+<div class="block-note">
+PostgreSQL can be used, but Doctrine migrations have been generated on MySQL, you have to delete them first.
+</div>
+
 ### Install project {#project}
 ```bash
 $ bin/console app:install -n            # install the application with non-interactive mode
-$ bin/console sylius:fixtures:load -n   # load data fixtures
+$ bin/console doctrine:fixtures:load -n # load data fixtures
 $ yarn install                          # install node packages
 $ yarn build                            # or yarn dev for development
 $ symfony server:start --no-tls         # start a local web server
