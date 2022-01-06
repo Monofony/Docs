@@ -5,8 +5,8 @@
 ### Install Monofony using composer {#composer}
 ```bash
 export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
-composer create-project monofony/skeleton project_name  # replace project_name by your project name
-cd project_name                                         # move to your project directory
+composer create-project monofony/skeleton:v0.8.0-alpha.2 project_name  # replace project_name by your project name
+cd project_name                                                        # move to your project directory
 ```
 
 ### Configure your database {#database}
