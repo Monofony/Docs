@@ -4,8 +4,7 @@
 
 ### Install Monofony using composer {#composer}
 ```bash
-export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
-composer create-project monofony/skeleton:v0.8.0-alpha.2 project_name  # replace project_name by your project name
+composer create-project monofony/skeleton:v0.8.0-alpha.5 project_name  # replace project_name by your project name
 cd project_name                                                        # move to your project directory
 ```
 
@@ -56,8 +55,7 @@ services:
 And execute the following commands:
 
 ```bash
-export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
-composer require monofony/api-pack
+composer require monofony/api-pack "^0.8"
 ```
 
 ## Front {#front}
@@ -71,6 +69,5 @@ To build a frontend, you can use our front-pack with default features:
 You can install it using the following commands:
 
 ```bash
-export SYMFONY_ENDPOINT=https://flex.symfony.com/r/github.com/symfony/recipes-contrib/1022
-composer require monofony/front-pack
+composer require monofony/front-pack "^0.8"
 ```
