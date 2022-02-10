@@ -4,7 +4,7 @@
 
 ### Install Monofony using composer {#composer}
 ```bash
-composer create-project monofony/skeleton:v0.8.0-alpha.5 project_name  # replace project_name by your project name
+composer create-project monofony/skeleton:v0.8.0-beta.1 project_name  # replace project_name by your project name
 cd project_name                                                        # move to your project directory
 ```
 
@@ -55,7 +55,7 @@ services:
 And execute the following commands:
 
 ```bash
-composer require monofony/api-pack "^0.8"
+composer require monofony/api-pack "^0.8@beta"
 ```
 
 ## Front {#front}
@@ -69,5 +69,5 @@ To build a frontend, you can use our front-pack with default features:
 You can install it using the following commands:
 
 ```bash
-composer require monofony/front-pack "^0.8"
+composer require monofony/front-pack "^0.8@beta"
 ```
