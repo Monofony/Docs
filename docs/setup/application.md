@@ -4,7 +4,7 @@
 
 ### Install Monofony using composer {#composer}
 ```bash
-composer create-project monofony/skeleton:v0.8.0-beta.1 project_name  # replace project_name by your project name
+composer create-project monofony/skeleton:dev-master project_name  # replace project_name by your project name
 cd project_name                                                        # move to your project directory
 ```
 
