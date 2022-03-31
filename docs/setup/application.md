@@ -52,6 +52,34 @@ services:
             $syliusResources: '%sylius.resources%' # for api
 ```
 
+Uncomment `success_handler`, `failure_handler` and `guard` on `config/packages/security.yaml`
+
+```yaml
+# config/packages/security.yaml
+security:
+    # ...
+    firewalls:
+        # ...        
+        api_login:
+        pattern: ^/api/authentication_token
+        provider: sylius_app_user_provider
+        stateless: true
+        json_login:
+            check_path: /api/authentication_token
+            success_handler: lexik_jwt_authentication.handler.authentication_success
+            failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+        api:
+            pattern: ^/api
+            provider: sylius_app_user_provider
+            stateless: true
+            anonymous: true
+            guard:
+                authenticators:
+                    - lexik_jwt_authentication.jwt_token_authenticator
+    
+```
+
 And execute the following commands:
 
 ```bash
