@@ -28,13 +28,13 @@ set :assets_install_flags,  '--symlink'
 set :linked_files, ['.env.local']
 set :linked_dirs, ["var/log", "var/sessions", "public/media"]
 
-set :application, 'AppName'
-set :repo_url, 'git@github.com:Monofony/Docs.git'
+set :application, 'monofony-docs'
+set :repo_url, 'git@github.com-monofony-docs:monofony/docs.git'
 
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :deploy_to, '/home/mobizel/rd_042_monofony_docs/'
+set :deploy_to, '/home/monofony/docs/'
 
 # Default value for :scm is :git
 # set :scm, :git
@@ -47,6 +47,10 @@ set :deploy_to, '/home/mobizel/rd_042_monofony_docs/'
 
 # Default value for :pty is false
 set :pty, true
+
+set :nvm_type, :user
+set :nvm_node, 'v14.19.3'
+set :nvm_map_bins, %w{node npm yarn}
 
 append :linked_files, fetch(:web_path) + '/robots.txt'
 append :linked_dirs, fetch(:web_path) + '/media'
@@ -83,12 +87,14 @@ end
 
 before "deploy:updated", "deploy:set_permissions:acl"
 
-after 'deploy:updated', :build_assets do
-    on roles(:web) do
-        puts "Build assets"
-        execute "cd #{release_path} && bin/console assets:install"
-        execute "cd #{release_path} && yarn install && yarn build"
-    end
+after 'deploy:updated', :post_deploy do
+   on roles(:web) do
+       puts "Build assets"
+       within release_path do
+           execute :yarn, "install"
+           execute :yarn, "build"
+       end
+   end
 end
 
 after 'deploy:updated', :post_deploy do
@@ -99,3 +105,15 @@ after 'deploy:updated', :post_deploy do
 end
 
 after 'deploy:updated', 'symfony:assets:install'
+
+set :branch do
+  puts "Ten last tags are:"
+  puts `git tag --sort=creatordate | tail -10`
+  default_tag = `git tag --sort=creatordate`.split("\n").last
+  tag = nil
+  set :tag, ask("the server-pushed tag to deploy", default_tag)
+  tag = fetch :tag
+  tag_commit = `git rev-list -n 1 #{tag}`.chomp
+  puts "The following tag is going to be deployed : #{tag} -> #{tag_commit}"
+  tag_commit
+end

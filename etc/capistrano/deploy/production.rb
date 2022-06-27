@@ -7,8 +7,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-server '192.168.12.18',
-  user: 'www-data',
+server 'docs.monofony.com',
+  user: 'monofony',
   roles: %w{app db web},
   ssh_options: {
     user: 'app_name', # overrides user setting above
@@ -31,9 +31,9 @@ server '192.168.12.18',
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :app, %w{mobizel@192.168.12.18}
-role :web, %w{mobizel@192.168.12.18}
-role :db,  %w{mobizel@192.168.12.18}
+role :app, %w{monofony@docs.monofony.com}
+role :web, %w{monofony@docs.monofony.com}
+role :db,  %w{monofony@docs.monofony.com}
 
 
 # Configuration

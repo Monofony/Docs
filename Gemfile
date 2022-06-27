@@ -4,5 +4,6 @@ gem 'capistrano'
 gem 'capistrano-symfony'
 gem 'capistrano-composer'
 gem 'capistrano-file-permissions'
-gem 'ed25519'
+gem 'capistrano-nvm', require: false
+
 gem 'bcrypt_pbkdf'
