@@ -4,7 +4,7 @@
 
 ### Install Monofony using composer {#composer}
 ```bash
-composer create-project monofony/skeleton:dev-master project_name  # replace project_name by your project name
+composer create-project monofony/skeleton:^0.9@alpha project_name  # replace project_name by your project name
 cd project_name                                                        # move to your project directory
 ```
 
@@ -20,7 +20,7 @@ Don't forgot to replace db_user and db_password by yours.
 </div>
 
 <div class="block-note">
-PostgreSQL can be used, but Doctrine migrations have been generated on MySQL, you have to delete them first.
+PostgreSQL can be used, and it is now recommended, but Doctrine migrations have been generated on MySQL, you have to delete them first.
 </div>
 
 ### Install project {#project}
@@ -52,7 +52,7 @@ services:
             $syliusResources: '%sylius.resources%' # for api
 ```
 
-Uncomment `success_handler`, `failure_handler` and `guard` on `config/packages/security.yaml`
+Uncomment `success_handler`, `failure_handler`, `jwt` and `refresh_jwt` on `config/packages/security.yaml`
 
 ```yaml
 # config/packages/security.yaml
@@ -73,17 +73,17 @@ security:
             pattern: ^/api
             provider: sylius_app_user_provider
             stateless: true
-            anonymous: true
-            guard:
-                authenticators:
-                    - lexik_jwt_authentication.jwt_token_authenticator
+            jwt: true
+            refresh_jwt:
+                check_path: /api/token/refresh
+
     
 ```
 
 And execute the following commands:
 
 ```bash
-composer require monofony/api-pack "^0.8@beta"
+composer require monofony/api-pack "^0.9@alpha"
 ```
 
 ## Front {#front}
@@ -97,5 +97,5 @@ To build a frontend, you can use our front-pack with default features:
 You can install it using the following commands:
 
 ```bash
-composer require monofony/front-pack "^0.8@beta"
+composer require monofony/front-pack "^0.9@alpha"
 ```

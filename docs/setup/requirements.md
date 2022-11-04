@@ -8,8 +8,8 @@ We recommend using the Symfony web local server instead.
 curl -sS https://get.symfony.com/cli/installer | bash
 ```
 
-## PHP 8.0 or later {#php}
-Ensure you have php 8.0 or later locally installed
+## PHP 8.1 or later {#php}
+Ensure you have php 8.1 or later locally installed
 
 ```bash
 php -v
@@ -19,12 +19,12 @@ If you do not have php yet...
 
 On macOS, you can use brew:
 ```bash
-brew install php@8.0
+brew install php@8.1
 ```
 
 On linux, you can use apt-get:
 ```bash
-sudo apt-get install php8.0
+sudo apt-get install php8.1
 ```
 
 ## MySQL 5.7 {#mysql}
