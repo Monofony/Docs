@@ -2,7 +2,7 @@
 
 ## Update your composer configuration
 
-We'll need doctrine extensions
+We'll need Doctrine extensions
 ```bash
 composer require stof/doctrine-extensions-bundle
 ```
