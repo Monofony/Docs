@@ -45,8 +45,7 @@ sylius_resource:
     resources:
         app.article:
             classes:
-                model: App\Entity\Article\Article
-                repository: App\Repository\ArticleRepository
+                # [...]
                 form: App\Form\Type\Article\ArticleType
 ```
 
