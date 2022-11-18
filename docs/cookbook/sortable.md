@@ -53,17 +53,17 @@ $ bin/console doctrine:migration:diff
 $gridBuilder
     ->orderBy('position', 'asc')
     ->addField(
-        TwigField::create('position', 'backend/book/grid/field/positionWithButtons.html.twig')
-        ->setLabel('sylius.ui.position')
-        ->setPath('.')
-        ->setSortable(true),
+        TwigField::create('position', 'backend/book/grid/field/position_with_buttons.html.twig')
+            ->setLabel('sylius.ui.position')
+            ->setPath('.')
+            ->setSortable(true),
     )
 ```
 
 ## Add new grid field template
 
 ```html
-<!-- template/backend/book/grid/field/positionWithButtons.html.twig -->
+<!-- template/backend/book/grid/field/position_with_buttons.html.twig -->
 <div style="text-align: center;"><span class="ui circular label">{{ data.position }}</span></div>
 
 <div class="ui vertical menu">
@@ -97,7 +97,7 @@ final class BookPositionType extends AbstractType
     {
         $builder
             ->add('position', IntegerType::class, [
-                'label' => 'app.position',
+                'label' => 'sylius.ui.position',
             ])
         ;
     }
@@ -203,4 +203,4 @@ If you're using api-pack, you might want to sort your entities with the new posi
 
 - Update your `BookFactory` class to add position in your fixtures.
 - Add functional tests according to the purpose of sorting in your app.
-- If using ApiPlatform, update your previous tests results with the new entity sorting.
+- If you use ApiPlatform, update your previous tests results with the new entity sorting.

@@ -1,20 +1,22 @@
 We'll see how to transform a string property of an entity to a translatable string property.
 
+# 10.1 - Basics : turn your entity to translatable
+
 ## Update your resources file
 
 Declare your future translation entity which will contain all the translations for every translatable field.
 ```yaml
 sylius_resource:
-  resources:
-    app.book:
-      classes:
-        model: App\Entity\Book
-      translation:
-        classes:
-          model: App\Entity\BookTranslation
+    resources:
+        app.book:
+            classes:
+                model: App\Entity\Book
+            translation:
+                classes:
+                    model: App\Entity\BookTranslation
 ```
 
-Say you want tu localize the book property `title`.
+Let's localize the book property `title`.
 - Create a Book translation class which will contain all the translatable fields
 
 ```php
@@ -134,3 +136,58 @@ This way, you will keep the original translation of the targeted property. Choos
 ```
 Be sure to always test both up and down migration to ensure no data will be lost in case of rollback of this feature.
 Note also that other locale translations than the default one (here `'fr_FR'`) will be lost in the down migration process.
+
+# 10.2 - Update your backend grid and form to manage translations
+
+## Update grid
+
+You need to use a specific repository method to join translations in your query. So let's begin with adding this repository.
+
+```php
+# src/Repository/BookRepository
+declare(strict_types=1);
+
+namespace App\Repository;
+
+use Doctrine\ORM\QueryBuilder;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
+
+class BookRepository extends EntityRepository
+{
+    public function createListQueryBuilder(string $locale): QueryBuilder
+    {
+        return $this->createQueryBuilder('o')
+            ->innerJoin('o.translations', 'translation')
+            ->andWhere('translation.locale = :locale')
+            ->setParameter('locale', $locale)
+        ;
+    }
+}
+```
+and declare it in resources.yaml
+```yaml
+sylius_resource:
+    resources:
+        app.book:
+            classes:
+                model: App\Entity\Book
++               repository: App\Repository\BookRepository
+            ...
+```
+Then update the grid to view the translated `title` field.
+```php
+# src/Grid/BookGrid
+    public function buildGrid(GridBuilderInterface $gridBuilder): void
+    {
+        $gridBuilder
+            ->setRepositoryMethod('createListQueryBuilder', ['%locale%'])
+            ->orderBy('translation.title', 'desc')
+            ->addField(
+                StringField::create('translation.title')
+                    ->setLabel('app.ui.title')
+                    ->setSortable(true)
+            )
+            ->addFilter(StringFilter::create('search', ['translation.title']))
+
+        ...
+```
