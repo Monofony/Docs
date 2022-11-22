@@ -29,7 +29,7 @@ $ bin/console app:install -n            # install the application with non-inter
 $ bin/console doctrine:fixtures:load -n # load data fixtures
 $ yarn install                          # install node packages
 $ yarn build                            # or yarn dev for development
-$ symfony server:start --no-tls         # start a local web server
+$ symfony serve -d                      # start a local web server
 ```
 
 ## Api {#api}
