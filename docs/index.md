@@ -18,3 +18,4 @@ Framework. If you're not familiar with Symfony, please start with reading the [Q
 * Chapter 6 - [Templates](templates.md)
 * Chapter 7 - [Fixtures](fixtures.md)
 * Chapter 8 - [BDD](bdd.md)
+* Chapter 9 - [Cookbook](cookbook.md)
