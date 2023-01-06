@@ -1,11 +1,13 @@
+# 9.2 - How to convert en entity to Translatable
+
 We'll see how to transform a string property of an entity to a translatable string property.
 
-# 10.1 - Basics : turn your entity to translatable
-
-## Update your resources file
+## Basics : turn your entity to translatable {#basics}
 
 Declare your future translation entity which will contain all the translations for every translatable field.
+
 ```yaml
+# config/sylius/resources.yaml
 sylius_resource:
     resources:
         app.book:
@@ -20,6 +22,8 @@ Let's localize the book property `title`.
 - Create a Book translation class which will contain all the translatable fields
 
 ```php
+// src/Entity/BookTranslation.php
+
 declare(strict_types=1);
 
 namespace App\Entity;
@@ -57,6 +61,8 @@ And update your `Book` entity class so :
 - if using `api-pack`, the `read` serialization group is moved from the property to the getter
 
 ```php
+// src/Entity/Book.php
+
 declare(strict_types=1);
 
 namespace App\Entity;
@@ -105,9 +111,10 @@ class Book implements ResourceInterface, TranslatableInterface
 
 The first entity, containing translations for the translatable fields, will automatically be linked to this base translatable entity.
 
-## Create and tune your migrations
+### Create and tune your migrations
 
 Create the migration file
+
 ````bash
 $ bin/console doctrine:migrations:diff
 ````
@@ -137,14 +144,13 @@ This way, you will keep the original translation of the targeted property. Choos
 Be sure to always test both up and down migration to ensure no data will be lost in case of rollback of this feature.
 Note also that other locale translations than the default one (here `'fr_FR'`) will be lost in the down migration process.
 
-# 10.2 - Update your backend grid and form to manage translations
-
-## Update grid
+## Update your backend grid and form to manage translations {#backend-grid}
 
 You need to use a specific repository method to join translations in your query. So let's begin with adding this repository.
 
 ```php
-# src/Repository/BookRepository
+// src/Repository/BookRepository.php
+
 declare(strict_types=1);
 
 namespace App\Repository;
@@ -166,6 +172,7 @@ class BookRepository extends EntityRepository
 ```
 and declare it in resources.yaml
 ```yaml
+# config/sylius/resources.yaml
 sylius_resource:
     resources:
         app.book:
@@ -176,7 +183,10 @@ sylius_resource:
 ```
 Then update the grid to view the translated `title` field.
 ```php
-# src/Grid/BookGrid
+// src/Grid/BookGrid.php
+
+    // [...]
+
     public function buildGrid(GridBuilderInterface $gridBuilder): void
     {
         $gridBuilder

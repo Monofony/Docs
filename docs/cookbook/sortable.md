@@ -1,28 +1,30 @@
-# 9.1 - Basics
+# 9.1 - How to convert en entity to Sortable
 
-## Update your composer configuration
+## Basics {#basics}
 
-We'll need Doctrine extensions
+Update your composer configuration, you need to require Doctrine extensions.
+
 ```bash
 composer require stof/doctrine-extensions-bundle
 ```
 
-## Configure new package
+Configure the package
 
 ```yaml
 stof_doctrine_extensions:
-  default_locale: '%kernel.default_locale%'
-  orm:
-    default:
-    sortable: true
+    default_locale: '%kernel.default_locale%'
+    orm:
+        default:
+        sortable: true
 ```
 
-# 9.2 - Configure your entity
+## Configure your entity {#entity}
 
-## Add new property in entity model
+Add new property in entity model
 
 ```php
-# src/Entity/Book.php
+// src/Entity/Book.php
+
     #[ORM\Column(type: 'integer', options: ['default' => 0])]
     #[SortablePosition]
     private int $position = 0;
@@ -44,12 +46,13 @@ Do not forget to generate migration for the new entity property.
 $ bin/console doctrine:migration:diff
 ```
 
-# 9.3 - Bringing the sorting ability to backend grid
+## Bringing the sorting ability to backend grid {#backend-grid}
 
-## Add field to entity grid
+Add field to entity grid
 
 ```php
 # src/Grid/BookGrid.php
+
 $gridBuilder
     ->orderBy('position', 'asc')
     ->addField(
@@ -60,7 +63,7 @@ $gridBuilder
     )
 ```
 
-## Add new grid field template
+Add new grid field template
 
 ```html
 <!-- template/backend/book/grid/field/position_with_buttons.html.twig -->
@@ -77,10 +80,12 @@ $gridBuilder
     {% endif %}
 </div>
 ```
-## Create a form specifically for updating position entity property
+
+Create a form specifically for updating position entity property
 
 ```php
-# src/Form/Type/Book/BookPositionType
+// src/Form/Type/Book/BookPositionType.php
+
 declare(strict_types=1);
 
 namespace App\Form\Type\Book;
@@ -116,8 +121,8 @@ final class BookPositionType extends AbstractType
     }
 }
 ```
-
-## Build a new route to handle position in entity
+ 
+Build a new route to handle position in entity
 
 ```php
 #[SyliusRoute(
@@ -128,7 +133,7 @@ final class BookPositionType extends AbstractType
 )]
 ```
 
-## Link everything with some Ajax
+Link everything with some Ajax
 
 ```javascript
 // assets/backend/js/app-move-book.js
@@ -187,11 +192,10 @@ import './app-move-book';
 
 ```
 
-# 9.5 API Platform
+## API Platform {#api-platform}
 
 If you're using api-pack, you might want to sort your entities with the new position field : add the `order` property.
 ```php
-
 #[ApiResource(
     normalizationContext: ['groups' => ['book:read']],
     order: ['position' => 'ASC'],
@@ -199,7 +203,7 @@ If you're using api-pack, you might want to sort your entities with the new posi
 ```
 
 
-# 9.4 Updating tests
+## Updating tests {#tests}
 
 - Update your `BookFactory` class to add position in your fixtures.
 - Add functional tests according to the purpose of sorting in your app.

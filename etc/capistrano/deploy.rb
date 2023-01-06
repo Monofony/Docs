@@ -105,15 +105,3 @@ after 'deploy:updated', :post_deploy do
 end
 
 after 'deploy:updated', 'symfony:assets:install'
-
-set :branch do
-  puts "Ten last tags are:"
-  puts `git tag --sort=creatordate | tail -10`
-  default_tag = `git tag --sort=creatordate`.split("\n").last
-  tag = nil
-  set :tag, ask("the server-pushed tag to deploy", default_tag)
-  tag = fetch :tag
-  tag_commit = `git rev-list -n 1 #{tag}`.chomp
-  puts "The following tag is going to be deployed : #{tag} -> #{tag_commit}"
-  tag_commit
-end
