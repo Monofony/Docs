@@ -86,6 +86,16 @@ And execute the following commands:
 composer require monofony/api-pack "^0.9"
 ```
 
+If you happen to see exception as below, run the migration commands.
+
+> Class "App\Entity\RefreshToken" sub class of "Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken" is not a valid entity or mapped super class.
+
+```
+bin/console doctrine:migrations:diff
+
+bin/console doctrine:migrations:migrate
+```
+
 ## Front {#front}
 
 To build a frontend, you can use our front-pack with default features:
