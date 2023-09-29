@@ -90,7 +90,7 @@ If you happen to see exception as below, run the migration commands.
 
 > Class "App\Entity\RefreshToken" sub class of "Gesdinet\JWTRefreshTokenBundle\Entity\RefreshToken" is not a valid entity or mapped super class.
 
-```
+```bash
 bin/console doctrine:migrations:diff
 
 bin/console doctrine:migrations:migrate
