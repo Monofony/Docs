@@ -109,3 +109,20 @@ You can install it using the following commands:
 ```bash
 composer require monofony/front-pack "^0.9"
 ```
+
+Make sure you update `webpack.config.js` accordingly and build it.
+
+```js title="webpack.config.js"
+const backendConfig = build('backend', `./assets/backend/`, vendorUiPath); // for admin
+const frontendConfig = build('frontend', `./assets/frontend/`, vendorUiPath); // for front
+
+// module.exports = [backendConfig]; // for admin only
+// module.exports = [frontendConfig]; // for front only
+module.exports = [backendConfig, frontendConfig]; // both front and admin
+```
+
+Finally you need to rebuild your assets:
+
+```bash
+yarn build
+```
