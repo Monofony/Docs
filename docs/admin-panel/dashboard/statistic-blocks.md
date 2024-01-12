@@ -18,24 +18,21 @@ namespace App\Dashboard\Statistics;
 
 use App\Repository\ArticleRepository;
 use Monofony\Component\Admin\Dashboard\Statistics\StatisticInterface;
-use Symfony\Component\Templating\EngineInterface;
+use Twig\Environment;
 
 final class ArticleStatistic implements StatisticInterface
 {
-    private $articleRepository;
-    private $engine;
-
-    public function __construct(ArticleRepository $articleRepository, EngineInterface $engine)
-    {
-        $this->articleRepository = $articleRepository;
-        $this->engine = $engine;
+    public function __construct(
+        private ArticleRepository $articleRepository,
+        private Environment $twig,
+    ) {
     }
 
     public function generate(): string
     {
         $amountOfArticles = $this->articleRepository->countArticles();
 
-        return $this->engine->render('backend/dashboard/statistics/_amount_of_articles.html.twig', [
+        return $this->twig->render('backend/dashboard/statistics/_amount_of_articles.html.twig', [
             'amountOfArticles' => $amountOfArticles,
         ]);
     }
